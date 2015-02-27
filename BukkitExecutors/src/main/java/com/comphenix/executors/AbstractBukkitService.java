@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import org.bukkit.scheduler.BukkitTask;
 
 import com.google.common.base.Throwables;
+import com.google.common.util.concurrent.ListenableScheduledFuture;
 
 abstract class AbstractBukkitService 
 	extends AbstractListeningService implements BukkitScheduledExecutorService {

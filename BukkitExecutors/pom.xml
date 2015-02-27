@@ -6,42 +6,35 @@
   <artifactId>BukkitExecutors</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
-
   <name>BukkitExecutors</name>
-  <url>http://maven.apache.org</url>
 
   <repositories>
     <repository>
-      <id>bukkit-rep</id>
-      <url>http://repo.bukkit.org/content/groups/public</url>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
     </repository>
   </repositories>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  
+
   <distributionManagement>
     <repository>
-      <id>comphenix-releases</id>
-      <name>Comphenix Maven Releases</name>
-      <url>http://repo.comphenix.net/content/repositories/releases/</url>
+      <id>shadowvolt-repo</id>
+      <name>Shadowvolt Maven Repository</name>
+      <url>http://ci.shadowvolt.com/plugin/repository/everything/</url>
     </repository>
-    <snapshotRepository>
-      <id>comphenix-snapshots</id>
-      <name>Comphenix Maven Snapshots</name>
-      <url>http://repo.comphenix.net/content/repositories/snapshots/</url>
-    </snapshotRepository>
   </distributionManagement>
-  
+
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.7</source>
+          <target>1.7</target>
         </configuration>
       </plugin>
     </plugins>
@@ -49,81 +42,81 @@
 
   <dependencies>
     <dependency>
-  		<groupId>org.bukkit</groupId>
-  		<artifactId>craftbukkit</artifactId>
-  		<version>1.7.2-R0.2</version>
-  		<scope>provided</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.10</version>
-  		<scope>test</scope>
-  	</dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot</artifactId>
+      <version>1.8-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
-		<groupId>org.mockito</groupId>
-		<artifactId>mockito-all</artifactId>
-		<version>1.8.4</version>
-		<scope>test</scope>
-	</dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>1.8.4</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
-  
+
   <profiles>
-  <profile>
-    <id>release-sign-artifacts</id>
-    <activation>
-      <property>
-        <name>performRelease</name>
-        <value>true</value>
-      </property>
-    </activation>
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>2.2</version>
-          <executions>
-            <execution>
-              <id>attach-sources</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.9</version>
-          <executions>
-            <execution>
-              <id>attach-javadocs</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.4</version>
-          <executions>
-            <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>sign</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        
-      </plugins>
-    </build>
-  </profile>
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.2</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.9</version>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 </project>

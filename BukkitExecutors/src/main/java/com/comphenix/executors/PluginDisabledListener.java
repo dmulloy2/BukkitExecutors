@@ -12,9 +12,9 @@ import org.bukkit.event.EventException;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginDisableEvent;
-
 import org.bukkit.plugin.EventExecutor;
 import org.bukkit.plugin.Plugin;
+
 import com.google.common.collect.MapMaker;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;

@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 import com.comphenix.executors.AbstractListeningService.RunnableAbstractFuture;
 import com.google.common.base.Preconditions;
+import com.google.common.util.concurrent.ListenableScheduledFuture;
 
 class CallableTask<T> extends RunnableAbstractFuture<T> {
 	protected final Callable<T> compute;
@@ -54,10 +55,8 @@ class CallableTask<T> extends RunnableAbstractFuture<T> {
 			
 			@Override
 			public int compareTo(Delayed o) {
-				return Long.compare(
-					getDelay(TimeUnit.NANOSECONDS),
-					o.getDelay(TimeUnit.NANOSECONDS)
-				);
+				return Long.valueOf(getDelay(TimeUnit.NANOSECONDS))
+						.compareTo(o.getDelay(TimeUnit.NANOSECONDS));
 			}
 			
 			@Override
@@ -71,15 +70,15 @@ class CallableTask<T> extends RunnableAbstractFuture<T> {
 					return unit.convert(((current - startTime) % nextDelay), TimeUnit.NANOSECONDS);
 			}
 		
-			@Override
+			// @Override
 			public boolean isPeriodic() {
 				return nextDelay > 0;
 			}
 			
-			@Override
+			/* @Override
 			public void run() {
 				compute();
-			}
+			} */
 		};
 	}
 	
