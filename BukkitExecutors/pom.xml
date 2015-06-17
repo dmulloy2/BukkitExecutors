@@ -8,16 +8,24 @@
   <packaging>jar</packaging>
   <name>BukkitExecutors</name>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <repositories>
     <repository>
       <id>spigot-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
     </repository>
+    <repository>
+      <id>dmulloy2-repo</id>
+      <url>http://repo.dmulloy2.net/content/groups/public/</url>
+    </repository>
+    <repository>
+      <id>md_5-repo</id>
+      <url>http://repo.md-5.net/content/groups/public/</url>
+    </repository>
   </repositories>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
 
   <distributionManagement>
     <repository>
